@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: '/',
         },
-        sitemap: 'https://brendonlambago.dev/sitemap.xml',
+        sitemap: 'https://brendon-portfolio-mu.vercel.app/sitemap.xml',
     }
 }
