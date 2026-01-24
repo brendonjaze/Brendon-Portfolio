@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+import CursorLight from "@/components/CursorLight";
+
 export const metadata: Metadata = {
   title: "Brendon Jaze M. Lambago | Creative Developer Portfolio",
   description: "Explore the portfolio of Brendon Jaze M. Lambago, a creative developer specializing in modern web experiences, UI/UX design, and innovative digital solutions.",
@@ -31,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <CursorLight />
         {children}
       </body>
     </html>
