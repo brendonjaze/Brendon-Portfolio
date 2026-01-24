@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: "Explore the portfolio of Brendon Jaze M. Lambago, a creative developer specializing in modern web experiences, UI/UX design, and innovative digital solutions.",
   keywords: ["Brendon Jaze M. Lambago", "Developer Portfolio", "Next.js", "Creative Developer", "Web Design"],
   authors: [{ name: "Brendon Jaze M. Lambago" }],
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "your-google-verification-code",
+  },
   openGraph: {
     title: "Brendon Jaze M. Lambago | Portfolio",
     description: "Creative Developer & UI/UX Enthusiast",
