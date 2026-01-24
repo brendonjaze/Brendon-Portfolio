@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords: ["Brendon Jaze M. Lambago", "Developer Portfolio", "Next.js", "Creative Developer", "Web Design"],
   authors: [{ name: "Brendon Jaze M. Lambago" }],
   verification: {
-    google: "mIJ3tDNVQvrvqdfF7Ky0qGhrTGTWO05MKOPL4raz8aL0",
+    google: "mIJ3tDNVQvrvqdF7Ky0qGhrTGTWO05MKOPL4raz8aL0",
   },
   openGraph: {
     title: "Brendon Jaze M. Lambago | Portfolio",
