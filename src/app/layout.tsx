@@ -1,0 +1,38 @@
+import type { Metadata } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Brendon Jaze M. Lambago | Creative Developer Portfolio",
+  description: "Explore the portfolio of Brendon Jaze M. Lambago, a creative developer specializing in modern web experiences, UI/UX design, and innovative digital solutions.",
+  keywords: ["Brendon Jaze M. Lambago", "Developer Portfolio", "Next.js", "Creative Developer", "Web Design"],
+  authors: [{ name: "Brendon Jaze M. Lambago" }],
+  openGraph: {
+    title: "Brendon Jaze M. Lambago | Portfolio",
+    description: "Creative Developer & UI/UX Enthusiast",
+    url: "https://brendonlambago.dev",
+    siteName: "Brendon Lambago Portfolio",
+    images: [
+      {
+        url: "/profile.jpg",
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        {children}
+      </body>
+    </html>
+  );
+}
