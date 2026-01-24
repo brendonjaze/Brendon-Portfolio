@@ -25,7 +25,7 @@ export default function Home() {
                 Brendon Jaze <br /> <span style={{ color: 'var(--primary)' }}>M. Lambago</span>
               </h1>
               <p style={{ fontSize: '1.2rem', color: 'var(--text-dim)', maxWidth: '500px', marginBottom: '30px' }}>
-                A Creative Developer & UI/UX enthusiast crafting exceptional digital experiences with modern technologies.
+                A Creative Developer crafting exceptional digital experiences with modern technologies.
               </p>
               <div style={{ display: 'flex', gap: '15px' }}>
                 <a href="#projects" className="btn btn-primary">View My Work</a>
@@ -76,7 +76,7 @@ export default function Home() {
         <section id="skills" style={{ padding: '80px 20px' }}>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '50px', textAlign: 'center' }}>Technical Skills</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
-            {['Responsive Web Design', 'User Research', 'React.js', 'Next.js', 'HTML/CSS', 'JavaScript', 'Express.js', 'Node.js', 'Python', 'FastAPI', 'Supabase'].map((skill) => (
+            {['Responsive Web Design', 'User Research', 'React.js', 'Next.js', 'HTML/CSS', 'JavaScript', 'Express.js', 'Node.js', 'Python', 'FastAPI', 'Supabase', 'Arduino', 'YOLOV8 + easyOCR'].map((skill) => (
               <div key={skill} className="glass" style={{ padding: '15px 30px', fontWeight: '600', color: 'var(--primary-light)' }}>
                 {skill}
               </div>
@@ -105,31 +105,19 @@ export default function Home() {
 
             <div className="glass" style={{ overflow: 'hidden', transition: '0.3s' }}>
               <div style={{ height: '200px', background: 'linear-gradient(45deg, var(--primary-dark), var(--primary))', position: 'relative' }}>
-                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontWeight: '800' }}>PORTFOLIO</div>
+                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontWeight: '800', textAlign: 'center' }}>ATTENDANCE SYSTEM</div>
               </div>
               <div style={{ padding: '25px' }}>
-                <h3 style={{ marginBottom: '10px' }}>Personal Journey</h3>
-                <p style={{ color: 'var(--text-dim)', marginBottom: '20px' }}>A showcase of creativity and technical prowess using Next.js.</p>
-                <div style={{ display: 'flex', gap: '10px' }}>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--primary-light)' }}>Next.js</span>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--primary-light)' }}>TypeScript</span>
+                <h3 style={{ marginBottom: '10px' }}>Attendance Tracking System</h3>
+                <p style={{ color: 'var(--text-dim)', marginBottom: '20px' }}>An IoT-based attendance tracking system using Arduino and ESP32 for seamless check-ins.</p>
+                <div style={{ display: 'flex', gap: '10px', marginBottom: '15px' }}>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--primary-light)' }}>Arduino</span>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--primary-light)' }}>ESP32</span>
                 </div>
+                <a href="https://brendon-front-gy4dqwn1k-brendon-jazes-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '8px 20px', fontSize: '0.9rem' }}>Open Project</a>
               </div>
             </div>
 
-            <div className="glass" style={{ overflow: 'hidden', transition: '0.3s' }}>
-              <div style={{ height: '200px', background: 'linear-gradient(45deg, #6b46c1, var(--primary-dark))', position: 'relative' }}>
-                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontWeight: '800' }}>E-COMMERCE</div>
-              </div>
-              <div style={{ padding: '25px' }}>
-                <h3 style={{ marginBottom: '10px' }}>Tech Haven</h3>
-                <p style={{ color: 'var(--text-dim)', marginBottom: '20px' }}>A full-stack e-commerce solution for modern tech gadgets.</p>
-                <div style={{ display: 'flex', gap: '10px' }}>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--primary-light)' }}>Node.js</span>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--primary-light)' }}>Stripe</span>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -144,8 +132,8 @@ export default function Home() {
 
             <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center', gap: '30px', fontSize: '1.5rem' }}>
               <a href="https://github.com/brendonjaze" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }}>GitHub</a>
-              <a href="#" style={{ opacity: 0.7 }}>LinkedIn</a>
-              <a href="#" style={{ opacity: 0.7 }}>Twitter</a>
+              <a href="https://www.linkedin.com/in/brendon-jaze-a34466322/" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }}>LinkedIn</a>
+              <a href="https://www.facebook.com/brendonjaze1006" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }}>Facebook Messenger</a>
             </div>
           </div>
         </section>
