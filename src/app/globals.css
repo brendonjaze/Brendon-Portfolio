@@ -221,3 +221,21 @@ nav {
   border-color: var(--primary-light);
   box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
 }
+
+/* Contact section - transparent background */
+#contact .glass {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+}
+
+/* Contact social links hover animation */
+#contact a[style*="opacity"] {
+  transition: all 0.3s ease;
+}
+
+#contact a[style*="opacity"]:hover {
+  opacity: 1 !important;
+  color: var(--primary-light);
+  transform: translateY(-3px);
+  display: inline-block;
+}

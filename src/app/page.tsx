@@ -140,7 +140,7 @@ export default function Home() {
       </main>
 
       <footer style={{ padding: '40px 20px', textAlign: 'center', borderTop: '1px solid var(--glass-border)', color: 'var(--text-dim)' }}>
-        <p>© {new Date().getFullYear()} Brendon Jaze M. Lambago. Built with love and Next.js.</p>
+        <p>© {new Date().getFullYear()} Brendon Jaze M. Lambago. Built with love.</p>
       </footer>
     </div>
   );
