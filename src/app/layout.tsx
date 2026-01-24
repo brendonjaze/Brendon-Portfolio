@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Brendon Jaze M. Lambago | Portfolio",
     description: "Creative Developer & UI/UX Enthusiast",
-    url: "https://brendonlambago.dev",
+    url: "https://brendon-portfolio-p95hpqedp-brendon-jazes-projects.vercel.app/",
     siteName: "Brendon Lambago Portfolio",
     images: [
       {
