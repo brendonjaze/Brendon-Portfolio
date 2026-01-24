@@ -123,17 +123,17 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" style={{ padding: '100px 20px', textAlign: 'center' }}>
-          <div className="glass" style={{ padding: '80px 40px', maxWidth: '800px', margin: '0 auto' }}>
+          <div style={{ padding: '80px 40px', maxWidth: '800px', margin: '0 auto' }}>
             <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>Let's Build Something Together</h2>
             <p style={{ color: 'var(--text-dim)', fontSize: '1.2rem', marginBottom: '40px' }}>
               I am currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
             </p>
             <a href="mailto:brendon.lambago@example.com" className="btn btn-primary" style={{ fontSize: '1.1rem' }}>Say Hello</a>
 
-            <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center', gap: '30px', fontSize: '1.5rem' }}>
-              <a href="https://github.com/brendonjaze" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }}>GitHub</a>
-              <a href="https://www.linkedin.com/in/brendon-jaze-a34466322/" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }}>LinkedIn</a>
-              <a href="https://www.facebook.com/brendonjaze1006" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }}>Facebook Messenger</a>
+            <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center', gap: '20px', fontSize: '1.1rem', flexWrap: 'wrap' }}>
+              <a href="https://github.com/brendonjaze" target="_blank" rel="noopener noreferrer" className="glass" style={{ padding: '15px 30px', fontWeight: '600', color: 'var(--primary-light)', display: 'inline-block' }}>GitHub</a>
+              <a href="https://www.linkedin.com/in/brendon-jaze-a34466322/" target="_blank" rel="noopener noreferrer" className="glass" style={{ padding: '15px 30px', fontWeight: '600', color: 'var(--primary-light)', display: 'inline-block' }}>LinkedIn</a>
+              <a href="https://www.facebook.com/brendonjaze1006" target="_blank" rel="noopener noreferrer" className="glass" style={{ padding: '15px 30px', fontWeight: '600', color: 'var(--primary-light)', display: 'inline-block' }}>Facebook Messenger</a>
             </div>
           </div>
         </section>
