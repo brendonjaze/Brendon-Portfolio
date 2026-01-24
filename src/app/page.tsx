@@ -99,7 +99,7 @@ export default function Home() {
                   <span style={{ fontSize: '0.8rem', color: 'var(--primary-light)' }}>Next.js</span>
                   <span style={{ fontSize: '0.8rem', color: 'var(--primary-light)' }}>Tailwind CSS</span>
                 </div>
-                <a href="http://localhost:3001" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '8px 20px', fontSize: '0.9rem' }}>Open Project</a>
+                <a href="https://library-management-system-ebon-ten.vercel.app/login" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '8px 20px', fontSize: '0.9rem' }}>Open Project</a>
               </div>
             </div>
 
