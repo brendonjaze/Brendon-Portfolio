@@ -124,11 +124,11 @@ export default function Home() {
         {/* Contact Section */}
         <section id="contact" style={{ padding: '100px 20px', textAlign: 'center' }}>
           <div style={{ padding: '80px 40px', maxWidth: '800px', margin: '0 auto' }}>
-            <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>Let's Build Something Together</h2>
+            <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>Together, let's create something.</h2>
             <p style={{ color: 'var(--text-dim)', fontSize: '1.2rem', marginBottom: '40px' }}>
-              I am currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+              Right now, I'm searching for fresh opportunities. I'll do everything in my power to respond, whether you have a question or simply want to say hello!
             </p>
-            <a href="mailto:brendon.lambago@example.com" className="btn btn-primary" style={{ fontSize: '1.1rem' }}>Say Hello</a>
+            <a href="mailto:brendonjaze07@gmail.com" className="btn btn-primary" style={{ fontSize: '1.1rem' }}>Say Hello</a>
 
             <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center', gap: '20px', fontSize: '1.1rem', flexWrap: 'wrap' }}>
               <a href="https://github.com/brendonjaze" target="_blank" rel="noopener noreferrer" className="glass" style={{ padding: '15px 30px', fontWeight: '600', color: 'var(--primary-light)', display: 'inline-block' }}>GitHub</a>
