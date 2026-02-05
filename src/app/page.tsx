@@ -74,9 +74,9 @@ export default function Home() {
 
         {/* Skills Section */}
         <section id="skills" style={{ padding: '80px 20px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '50px', textAlign: 'center' }}>Technical Skills</h2>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '50px', textAlign: 'center' }}>Tech Stack</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
-            {['Responsive Web Design', 'User Research', 'React.js', 'Next.js', 'HTML/CSS', 'JavaScript', 'Express.js', 'Node.js', 'Python', 'FastAPI', 'Supabase', 'Arduino', 'YOLOV8 + easyOCR', 'Tailwind CSS'].map((skill) => (
+            {['Responsive Web Design', 'User Research', 'React', 'Next.js', 'HTML/CSS', 'JavaScript', 'Express.js', 'Node.js', 'Python', 'FastAPI', 'Supabase', 'Arduino', 'YOLOV8 + easyOCR', 'Tailwind CSS'].map((skill) => (
               <div key={skill} className="glass" style={{ padding: '15px 30px', fontWeight: '600', color: 'var(--primary-light)' }}>
                 {skill}
               </div>
