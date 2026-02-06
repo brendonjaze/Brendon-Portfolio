@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import CursorLight from "@/components/CursorLight";
+import CursorParticles from "@/components/CursorParticles";
+import CursorComet from "@/components/CursorComet";
+import SiteIntro from "@/components/SiteIntro";
 
 export const metadata: Metadata = {
   title: "Brendon Jaze M. Lambago | Creative Developer Portfolio",
@@ -37,6 +40,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <CursorLight />
+        <CursorParticles />
+        <CursorComet />
+        <SiteIntro />
         {children}
       </body>
     </html>

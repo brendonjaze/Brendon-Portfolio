@@ -31,7 +31,7 @@ export default function CursorLight() {
                 width: '500px',
                 height: '500px',
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(192, 132, 252, 0.25) 0%, rgba(192, 132, 252, 0.1) 30%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(192, 132, 252, 0.25) 0%, rgba(192, 132, 252, 0.1) 20%, transparent 40%)',
                 transform: 'translate(-500px, -500px)', // Start off-screen
                 pointerEvents: 'none',
                 zIndex: 9999,

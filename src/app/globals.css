@@ -120,6 +120,10 @@ section {
 
 /* Navbar */
 nav {
+  position: fixed;
+  /* Fixes the nav to the top */
+  top: 0;
+  left: 0;
   width: 100%;
   height: 70px;
   z-index: 1000;
@@ -127,6 +131,13 @@ nav {
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
+  pointer-events: none;
+  /* Let clicks pass through the empty areas */
+}
+
+/* Re-enable pointer events for the interactive parts */
+.nav-container {
+  pointer-events: auto;
 }
 
 .nav-container {
@@ -135,11 +146,12 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background: rgba(13, 0, 22, 0.7);
+  padding: 10px 30px;
+  background: rgba(173, 216, 230, 0.06);
+  /* Light Blue Tint */
   backdrop-filter: blur(10px);
-  border-radius: 40px;
-  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  border: 1px solid rgba(173, 216, 230, 0.15);
 }
 
 .logo {
@@ -150,15 +162,18 @@ nav {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* Add shadows or background if needed, but keeping it clean for now */
 }
 
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 15px;
+  /* Reduced gap since items now have padding */
 }
 
 .nav-links a:hover {
   color: var(--primary-light);
+  text-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
 }
 
 /* Animations */

@@ -1,26 +1,17 @@
 import Image from "next/image";
 
+import Navbar from "@/components/Navbar";
+
 export default function Home() {
   return (
     <div className="container">
-      <nav>
-        <div className="nav-container">
-          <div className="logo">BRENDON JAZE.</div>
-          <ul className="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
+      <Navbar />
 
       <main>
         {/* Hero Section */}
         <section className="hero animate-fade-up">
           <div style={{ display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap', minHeight: '80vh' }}>
             <div style={{ flex: 1, minWidth: '300px' }}>
-              <h2 style={{ color: 'var(--primary-light)', fontSize: '1.2rem', marginBottom: '10px' }}>Hi, I am</h2>
               <h1 style={{ fontSize: '4.5rem', lineHeight: '1.1', marginBottom: '20px' }}>
                 Brendon Jaze <br /> <span style={{ color: 'var(--primary)' }}>M. Lambago</span>
               </h1>
