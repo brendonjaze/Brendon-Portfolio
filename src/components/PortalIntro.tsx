@@ -199,6 +199,10 @@ export default function PortalIntro({ onComplete }: { onComplete: () => void }) 
             if (portalRadius < targetRadius) {
                 requestAnimationFrame(render);
             } else {
+                const audio = new Audio('/welcome.mp3');
+                audio.volume = 1;
+                audio.play().catch(e => console.warn("Audio autoplay blocked:", e));
+
                 setOpacity(0);
                 setTimeout(onComplete, 1000);
             }
