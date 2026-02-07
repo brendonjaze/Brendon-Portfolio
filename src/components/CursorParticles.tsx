@@ -99,7 +99,7 @@ export default function CursorParticles() {
                 suckTimer = Math.max(0, suckTimer - 0.5); // Slow decay
             }
 
-            if (suckTimer > 150 && !isExploding) { // ~2.5 seconds
+            if (suckTimer > 240 && !isExploding) { // ~4 seconds
                 isExploding = true;
                 explosionDuration = 30; // 0.5s blast duration
                 suckTimer = 0;
