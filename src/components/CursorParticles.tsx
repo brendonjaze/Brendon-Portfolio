@@ -78,6 +78,11 @@ export default function CursorParticles() {
             context.fill();
         };
 
+        let suckTimer = 0;
+        let isExploding = false;
+        let explosionDuration = 0;
+        let particlesGathered = 0;
+
         const animate = () => {
             if (!ctx || !canvas) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -85,14 +90,49 @@ export default function CursorParticles() {
             const mouse = mouseRef.current;
             const influenceRadius = 250;
             const attractionRadius = 300;
-            const repulsionRadius = 60;
+
+            // Logic to trigger explosion
+            // If many particles are gathered near mouse for > 2.5s
+            if (particlesGathered > 30) {
+                suckTimer++;
+            } else {
+                suckTimer = Math.max(0, suckTimer - 0.5); // Slow decay
+            }
+
+            if (suckTimer > 150 && !isExploding) { // ~2.5 seconds
+                isExploding = true;
+                explosionDuration = 30; // 0.5s blast duration
+                suckTimer = 0;
+            }
+
+            if (isExploding) {
+                explosionDuration--;
+                if (explosionDuration <= 0) {
+                    isExploding = false;
+                }
+            }
+
+            let currentGathered = 0;
 
             particlesRef.current.forEach((p) => {
                 const dx = mouse.x - p.x;
                 const dy = mouse.y - p.y;
                 const distToMouse = Math.sqrt(dx * dx + dy * dy);
 
-                if (mouse.x > 0 && distToMouse < attractionRadius) {
+                if (distToMouse < 100) {
+                    currentGathered++;
+                }
+
+                if (isExploding) {
+                    // EXPLOSION MECHANIC
+                    if (explosionDuration === 29) {
+                        const angleToMouse = Math.atan2(dy, dx);
+                        const blastForce = 30.0 + Math.random() * 20.0;
+                        p.vx -= Math.cos(angleToMouse) * blastForce;
+                        p.vy -= Math.sin(angleToMouse) * blastForce;
+                        p.rotationSpeed = (Math.random() - 0.5) * 0.5;
+                    }
+                } else if (mouse.x > 0 && distToMouse < attractionRadius) {
                     const angleToMouse = Math.atan2(dy, dx);
 
                     // PURE ATTRACTION: Particles are pulled towards cursor but preserve momentum to pass through
@@ -131,6 +171,8 @@ export default function CursorParticles() {
                 ctx.fillStyle = `rgba(${p.color}, ${p.opacity})`;
                 drawPolygon(ctx, p.x, p.y, p.size, p.sides, p.angle);
             });
+
+            particlesGathered = currentGathered;
 
             animationFrameRef.current = requestAnimationFrame(animate);
         };
