@@ -1,136 +1,175 @@
-import Image from "next/image";
+"use client";
 
+import Image from "next/image";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import ProjectsSection from "@/components/ProjectsSection";
+import SkillsSection from "@/components/SkillsSection";
 
 export default function Home() {
   return (
-    <div className="container">
+    <div className="min-h-screen text-text-main overflow-x-hidden">
       <Navbar />
 
       <main>
         {/* Hero Section */}
-        <section className="hero animate-fade-up">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap', minHeight: '80vh' }}>
-            <div style={{ flex: 1, minWidth: '300px' }}>
-              <h1 style={{ fontSize: '4.5rem', lineHeight: '1.1', marginBottom: '20px' }}>
-                Brendon Jaze <br /> <span style={{ color: 'var(--primary)' }}>M. Lambago</span>
+        <section className="relative min-h-screen flex items-center justify-center px-6 pt-20">
+          <div className="container max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            {/* Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="order-2 lg:order-1 text-center lg:text-left"
+            >
+              <h1 className="text-5xl md:text-7xl font-bold font-heading leading-tight mb-6">
+                Brendon Jaze <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
+                  M. Lambago
+                </span>
               </h1>
-              <p style={{ fontSize: '1.2rem', color: 'var(--text-dim)', maxWidth: '500px', marginBottom: '30px' }}>
+              <p className="text-xl md:text-2xl text-text-dim max-w-lg mx-auto lg:mx-0 mb-8 font-light">
                 A Creative Developer crafting exceptional digital experiences with modern technologies.
               </p>
-              <div style={{ display: 'flex', gap: '15px' }}>
-                <a href="#projects" className="btn btn-primary">View My Work</a>
-                <a href="#contact" className="btn btn-secondary">Get In Touch</a>
+
+              <div className="flex gap-4 justify-center lg:justify-start">
+                <a
+                  href="#projects"
+                  className="px-8 py-3 rounded-full bg-primary hover:bg-primary-dark text-white font-semibold transition-all hover:scale-105 shadow-[0_0_20px_rgba(192,132,252,0.3)]"
+                >
+                  View My Work
+                </a>
+                <a
+                  href="#contact"
+                  className="px-8 py-3 rounded-full border border-white/10 hover:bg-white/5 text-white font-semibold transition-all hover:scale-105 backdrop-blur-sm"
+                >
+                  Get In Touch
+                </a>
               </div>
-            </div>
-            <div style={{ flex: 1, display: 'flex', justifyContent: 'center', position: 'relative' }}>
-              <div style={{
-                position: 'relative',
-                width: '300px',
-                height: '300px',
-                borderRadius: '50% 50% 30% 70% / 60% 40% 60% 40%',
-                overflow: 'hidden',
-                border: '5px solid var(--primary)',
-                boxShadow: '0 0 50px rgba(157, 78, 221, 0.4)',
-                background: 'var(--primary-dark)'
-              }}>
-                <Image
-                  src="/profile.jpg"
-                  alt="Brendon Jaze M. Lambago"
-                  fill
-                  style={{ objectFit: 'cover', filter: 'contrast(1.05) brightness(1.02)' }}
-                  priority
-                />
+            </motion.div>
+
+            {/* Profile Image with Shape */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              className="order-1 lg:order-2 flex justify-center relative"
+            >
+              <div className="relative w-[228px] h-[228px] md:w-[304px] md:h-[304px]">
+                {/* Glowing orb behind */}
+                <div className="absolute inset-0 bg-primary blur-[80px] opacity-20 animate-pulse" />
+
+                <div
+                  className="relative w-full h-full overflow-hidden border-[4px] border-primary shadow-[0_0_50px_rgba(192,132,252,0.5)] bg-primary-dark/20 backdrop-blur-sm"
+                  style={{
+                    borderRadius: '50% 50% 30% 70% / 60% 40% 60% 40%',
+                  }}
+                >
+                  <Image
+                    src="/profile.jpg"
+                    alt="Brendon Jaze M. Lambago"
+                    fill
+                    sizes="(max-width: 768px) 228px, 304px"
+                    quality={75}
+                    className="object-cover"
+                    priority
+                  />
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* About Section */}
-        <section id="about" className="animate-fade-up" style={{ padding: '80px 20px' }}>
-          <div className="glass" style={{ padding: '60px' }}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '30px', textAlign: 'center' }}>About Me</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
-              <p style={{ color: 'var(--text-dim)', fontSize: '1.1rem' }}>
-                I am a passionate developer with a strong focus on building responsive and interactive web applications.
-                My journey in tech is driven by curiosity and a desire to solve complex problems through clean, efficient code.
-              </p>
-              <p style={{ color: 'var(--text-dim)', fontSize: '1.1rem' }}>
-                With a background in modern web frameworks and a keen eye for design, I bridge the gap between aesthetics
-                and functionality, ensuring every project I work on provides a seamless user experience.
-              </p>
+        <section id="about" className="py-24 px-6 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.8 }}
+            className="container max-w-4xl mx-auto"
+          >
+            <div className="glass p-8 md:p-12 relative overflow-hidden group">
+              {/* Decorative gradient blob */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10 group-hover:bg-primary/30 transition-colors duration-500" />
+
+              <h2 className="text-4xl font-bold font-heading mb-8 text-center bg-gradient-to-r from-white to-text-dim bg-clip-text text-transparent">
+                About Me
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-8 text-lg text-text-dim leading-relaxed">
+                <p>
+                  I am a passionate developer with a strong focus on building responsive and interactive web applications.
+                  My journey in tech is driven by curiosity and a desire to solve complex problems through clean, efficient code.
+                </p>
+                <p>
+                  With a background in modern web frameworks and a keen eye for design, I bridge the gap between aesthetics
+                  and functionality, ensuring every project I work on provides a seamless user experience.
+                </p>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Skills Section */}
-        <section id="skills" style={{ padding: '80px 20px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '50px', textAlign: 'center' }}>Tech Stack</h2>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
-            {['Responsive Web Design', 'User Research', 'React', 'Next.js', 'HTML/CSS', 'JavaScript', 'Express.js', 'Node.js', 'Python', 'FastAPI', 'Supabase', 'Arduino', 'YOLOV8 + easyOCR', 'Tailwind CSS'].map((skill) => (
-              <div key={skill} className="glass" style={{ padding: '15px 30px', fontWeight: '600', color: 'var(--primary-light)' }}>
-                {skill}
-              </div>
-            ))}
-          </div>
-        </section>
+        <SkillsSection />
 
         {/* Projects Section */}
-        <section id="projects" style={{ padding: '80px 20px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '50px', textAlign: 'center' }}>Featured Projects</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '30px' }}>
-            <div className="glass" style={{ overflow: 'hidden', transition: '0.3s' }}>
-              <div style={{ height: '200px', background: 'linear-gradient(45deg, var(--primary-dark), var(--primary))', position: 'relative' }}>
-                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontWeight: '800' }}>LMS PROJECT</div>
-              </div>
-              <div style={{ padding: '25px' }}>
-                <h3 style={{ marginBottom: '10px' }}>Library Management System</h3>
-                <p style={{ color: 'var(--text-dim)', marginBottom: '20px' }}>A comprehensive system for tracking books, members, and borrowings with a smooth UI.</p>
-                <div style={{ display: 'flex', gap: '10px', marginBottom: '15px' }}>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--primary-light)' }}>Next.js</span>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--primary-light)' }}>Tailwind CSS</span>
-                </div>
-                <a href="https://library-management-system-ebon-ten.vercel.app/login" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '8px 20px', fontSize: '0.9rem' }}>Open Project</a>
-              </div>
-            </div>
-
-            <div className="glass" style={{ overflow: 'hidden', transition: '0.3s' }}>
-              <div style={{ height: '200px', background: 'linear-gradient(45deg, var(--primary-dark), var(--primary))', position: 'relative' }}>
-                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontWeight: '800', textAlign: 'center' }}>ATTENDANCE SYSTEM</div>
-              </div>
-              <div style={{ padding: '25px' }}>
-                <h3 style={{ marginBottom: '10px' }}>Attendance Tracking System</h3>
-                <p style={{ color: 'var(--text-dim)', marginBottom: '20px' }}>An IoT-based attendance tracking system using Arduino and ESP32 for seamless check-ins.</p>
-                <div style={{ display: 'flex', gap: '10px', marginBottom: '15px' }}>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--primary-light)' }}>Arduino</span>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--primary-light)' }}>ESP32</span>
-                </div>
-                <a href="https://brendon-front-gy4dqwn1k-brendon-jazes-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '8px 20px', fontSize: '0.9rem' }}>Open Project</a>
-              </div>
-            </div>
-
-          </div>
-        </section>
+        <ProjectsSection />
 
         {/* Contact Section */}
-        <section id="contact" style={{ padding: '100px 20px', textAlign: 'center' }}>
-          <div style={{ padding: '80px 40px', maxWidth: '800px', margin: '0 auto' }}>
-            <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>Together, let's create something.</h2>
-            <p style={{ color: 'var(--text-dim)', fontSize: '1.2rem', marginBottom: '40px' }}>
-              Right now, I'm searching for fresh opportunities. I'll do everything in my power to respond, whether you have a question or simply want to say hello!
+        <section id="contact" className="py-32 px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="container max-w-3xl mx-auto"
+          >
+            <h2 className="text-5xl md:text-6xl font-bold font-heading mb-6 tracking-tight">
+              Let&apos;s create something.
+            </h2>
+            <p className="text-xl text-text-dim mb-12 max-w-xl mx-auto">
+              Right now, I&apos;m searching for fresh opportunities. Whether you have a question or simply want to say hello, I&apos;m always open to chat!
             </p>
-            <a href="mailto:brendonjaze07@gmail.com" className="btn btn-primary" style={{ fontSize: '1.1rem' }}>Say Hello</a>
 
-            <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center', gap: '20px', fontSize: '1.1rem', flexWrap: 'wrap' }}>
-              <a href="https://github.com/brendonjaze" target="_blank" rel="noopener noreferrer" className="glass" style={{ padding: '15px 30px', fontWeight: '600', color: 'var(--primary-light)', display: 'inline-block' }}>GitHub</a>
-              <a href="https://www.linkedin.com/in/brendon-jaze-a34466322/" target="_blank" rel="noopener noreferrer" className="glass" style={{ padding: '15px 30px', fontWeight: '600', color: 'var(--primary-light)', display: 'inline-block' }}>LinkedIn</a>
-              <a href="https://www.facebook.com/brendonjaze1006" target="_blank" rel="noopener noreferrer" className="glass" style={{ padding: '15px 30px', fontWeight: '600', color: 'var(--primary-light)', display: 'inline-block' }}>Facebook Messenger</a>
+            <a
+              href="mailto:brendonjaze07@gmail.com"
+              className="inline-block px-10 py-4 bg-white text-bg font-bold rounded-full hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+            >
+              Say Hello
+            </a>
+
+            <div className="mt-16 flex flex-wrap justify-center gap-6">
+              {[
+                { name: "GitHub", url: "https://github.com/brendonjaze" },
+                { name: "LinkedIn", url: "https://www.linkedin.com/in/brendon-jaze-a34466322/" },
+                { name: "Messenger", url: "https://www.facebook.com/brendonjaze1006" }
+              ].map((social) => (
+                <motion.a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 rounded-lg border border-white/5 bg-white/5 transition-all"
+                  whileHover={{
+                    y: -5,
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    borderColor: "rgba(192, 132, 252, 0.5)",
+                    boxShadow: "0 10px 30px rgba(192, 132, 252, 0.2)"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {social.name}
+                </motion.a>
+              ))}
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
 
-      <footer style={{ padding: '40px 20px', textAlign: 'center', borderTop: '1px solid var(--glass-border)', color: 'var(--text-dim)' }}>
+      <footer className="py-8 text-center text-text-dim border-t border-white/5">
         <p>© {new Date().getFullYear()} Brendon Jaze M. Lambago. Built with love.</p>
       </footer>
     </div>

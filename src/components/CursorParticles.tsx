@@ -85,7 +85,6 @@ export default function CursorParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             const mouse = mouseRef.current;
-            const influenceRadius = 250;
             const attractionRadius = 300;
 
 

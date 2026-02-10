@@ -25,51 +25,7 @@ export default function CursorComet() {
             canvas.height = window.innerHeight;
         };
 
-        const animate = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            const mouse = mouseRef.current;
-
-            // Add current position to trail
-            trailRef.current.push({ x: mouse.x, y: mouse.y });
-
-            // Limit trail length
-            const maxTrailLength = 25;
-            if (trailRef.current.length > maxTrailLength) {
-                trailRef.current.shift();
-            }
-
-            // Draw trail
-            // We iterate backwards to draw the head on top
-            for (let i = 0; i < trailRef.current.length; i++) {
-                const point = trailRef.current[i];
-
-                // Calculate properties based on index (0 is tail, length-1 is head)
-                const ratio = i / trailRef.current.length;
-
-                // Size: Head is biggest (12px), Tail shrinks to 0
-                const size = 12 * ratio;
-
-                // Color Interpolation: Purple to Light Blue
-                // Purple: 192, 132, 252
-                // Light Blue: 120, 220, 255
-                // We want tail (low ratio) to be one color, head (high ratio) to be another?
-                // Or user said "purple and light blue". Let's make the head Light Blue and fade to Purple, or vice versa.
-                // Let's go: Head = Light Blue, Tail = Purple
-
-                const r = 192 + (120 - 192) * ratio;
-                const g = 132 + (220 - 132) * ratio;
-                const b = 252 + (255 - 252) * ratio;
-                const color = `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
-
-                ctx.beginPath();
-                ctx.arc(point.x, point.y, size, 0, Math.PI * 2);
-                ctx.fillStyle = color;
-                ctx.fill();
-            }
-
-            animationFrameRef.current = requestAnimationFrame(animate);
-        };
 
         const handleMouseMove = (e: MouseEvent) => {
             // Direct updates might be too jagged, but let's try raw input first. 
@@ -105,7 +61,6 @@ export default function CursorComet() {
             // Draw Trail
             for (let i = 0; i < trailRef.current.length; i++) {
                 const point = trailRef.current[i];
-                const indexFromHead = trailRef.current.length - 1 - i;
                 const ratio = i / trailRef.current.length; // 0 (tail) -> 1 (head)
 
                 // Size

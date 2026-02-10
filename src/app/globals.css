@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --primary: #c084fc;
@@ -6,11 +8,12 @@
   --primary-dark: #a855f7;
   --bg-color: #1a0b2e;
   --text-main: #ffffff;
-  --text-dim: #b8b8b8;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --text-dim: #d1d1d1;
+  /* High contrast improved for accessibility */
+  --card-bg: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --font-heading: var(--font-outfit), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
 }
 
 * {
@@ -29,9 +32,20 @@ body {
   font-family: var(--font-body);
   overflow-x: hidden;
   line-height: 1.6;
+  position: relative;
 }
 
-/* Purple Mesh Background Effect */
+/* Performance-Optimized Star Field Background */
+@keyframes stars-float {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-1000px);
+  }
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -40,9 +54,30 @@ body::before {
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(circle at 20% 20%, rgba(192, 132, 252, 0.15) 0%, transparent 55%),
-    radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.2) 0%, transparent 55%),
-    radial-gradient(circle at 50% 50%, rgba(192, 132, 252, 0.1) 0%, transparent 75%);
+    radial-gradient(1px 1px at 20px 30px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 50px 160px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 130px 80px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 160px 120px, #fff, rgba(0, 0, 0, 0));
+  background-size: 200px 200px;
+  opacity: 0.15;
+  z-index: -2;
+  pointer-events: none;
+  animation: stars-float 100s linear infinite;
+}
+
+/* Subtle Cosmic Glows */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(192, 132, 252, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.05) 0%, transparent 40%);
   z-index: -1;
   pointer-events: none;
 }
@@ -118,64 +153,6 @@ section {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Navbar */
-nav {
-  position: fixed;
-  /* Fixes the nav to the top */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 70px;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
-  pointer-events: none;
-  /* Let clicks pass through the empty areas */
-}
-
-/* Re-enable pointer events for the interactive parts */
-.nav-container {
-  pointer-events: auto;
-}
-
-.nav-container {
-  width: 90%;
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 30px;
-  background: rgba(173, 216, 230, 0.06);
-  /* Light Blue Tint */
-  backdrop-filter: blur(10px);
-  border-radius: 50px;
-  border: 1px solid rgba(173, 216, 230, 0.15);
-}
-
-.logo {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 800;
-  background: linear-gradient(to right, var(--primary-light), var(--primary));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* Add shadows or background if needed, but keeping it clean for now */
-}
-
-.nav-links {
-  display: flex;
-  gap: 15px;
-  /* Reduced gap since items now have padding */
-}
-
-.nav-links a:hover {
-  color: var(--primary-light);
-  text-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
-}
-
 /* Animations */
 @keyframes fadeInUp {
   from {
@@ -191,68 +168,4 @@ nav {
 
 .animate-fade-up {
   animation: fadeInUp 0.8s ease forwards;
-}
-
-/* Page specific styles */
-.hero {
-  padding-top: 15vh;
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
-  .hero h1 {
-    font-size: 3rem !important;
-  }
-
-  .hero-content {
-    text-align: center;
-  }
-
-  .hero>div {
-    flex-direction: column;
-    text-align: center;
-    gap: 40px !important;
-  }
-
-  .hero div[style*="flex: 1"] {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-/* Project card interaction */
-#projects .glass {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-#projects .glass:hover {
-  transform: translateY(-10px);
-  border-color: var(--primary-light);
-  box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
-
-}
-
-/* Contact section interaction */
-#contact .glass {
-  /* Match Skills tab visibility */
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-
-  /* Animation properties */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  display: inline-block;
-}
-
-#contact .glass:hover {
-  transform: translateY(-5px) scale(1.05);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--primary);
-  box-shadow: 0 10px 25px rgba(157, 78, 221, 0.3);
 }

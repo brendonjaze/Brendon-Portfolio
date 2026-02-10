@@ -1,12 +1,28 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Script from "next/script";
+import { Inter, Outfit } from "next/font/google";
 
 import CursorLight from "@/components/CursorLight";
 import CursorParticles from "@/components/CursorParticles";
 import CursorComet from "@/components/CursorComet";
 import SiteIntro from "@/components/SiteIntro";
+import InteractiveRobot from "@/components/InteractiveRobot";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'),
   title: "Brendon Jaze M. Lambago | Creative Developer Portfolio",
   description: "Explore the portfolio of Brendon Jaze M. Lambago, a creative developer specializing in modern web experiences, UI/UX design, and innovative digital solutions.",
   keywords: ["Brendon Jaze M. Lambago", "Developer Portfolio", "Next.js", "Creative Developer", "Web Design"],
@@ -37,12 +53,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
       <body>
         <CursorLight />
         <CursorParticles />
         <CursorComet />
         <SiteIntro />
+        <InteractiveRobot />
         {children}
       </body>
     </html>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Navbar() {
     const [active, setActive] = useState('');
@@ -44,42 +45,33 @@ export default function Navbar() {
         return () => window.removeEventListener('resize', handleResize);
     }, [active]);
 
-
     return (
-        <nav>
-            <div className="nav-container">
-                <div className="logo">BRENDON JAZE.</div>
-                <ul className="nav-links" ref={navRef} style={{ position: 'relative' }}>
+        <nav className="fixed top-0 left-0 w-full h-[70px] z-[1000] flex justify-center items-center pointer-events-none">
+            <div className="pointer-events-auto w-[90%] max-w-[1200px] flex justify-between items-center px-8 py-2.5 bg-[#add8e6]/5 backdrop-blur-md rounded-full border border-[#add8e6]/15 shadow-sm">
+                <div className="font-heading text-2xl font-extrabold bg-gradient-to-r from-primary-light to-primary bg-clip-text text-transparent">
+                    BRENDON JAZE.
+                </div>
+
+                <ul className="hidden md:flex gap-4 relative" ref={navRef}>
                     {/* Animated Sliding Pill */}
                     <div
+                        className="absolute bg-primary/40 rounded-full transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] -z-10"
                         style={{
-                            position: 'absolute',
                             left: pillStyle.left,
                             width: pillStyle.width,
                             height: pillStyle.height,
                             opacity: pillStyle.opacity,
-                            background: 'rgba(192, 132, 252, 0.4)',
-                            borderRadius: '30px',
-                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                            pointerEvents: 'none',
-                            zIndex: 0 // Behind text
                         }}
                     />
 
                     {navItems.map((item) => (
-                        <li key={item.name} style={{ zIndex: 1 }}>
+                        <li key={item.name} className="z-10">
                             <a
-                                ref={el => { itemRefs.current[item.href] = el }} // Correctly typed ref assignment
+                                ref={el => { itemRefs.current[item.href] = el }}
                                 href={item.href}
                                 onClick={() => setActive(item.href)}
-                                style={{
-                                    padding: '8px 20px',
-                                    borderRadius: '30px',
-                                    // Background removed, handled by pill
-                                    color: active === item.href ? 'white' : 'inherit',
-                                    transition: 'color 0.3s ease',
-                                    display: 'inline-block'
-                                }}
+                                className={`inline-block px-5 py-2 rounded-full transition-colors duration-300 ${active === item.href ? 'text-white' : 'text-text-main hover:text-primary-light'
+                                    }`}
                             >
                                 {item.name}
                             </a>

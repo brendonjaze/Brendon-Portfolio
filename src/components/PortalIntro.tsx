@@ -46,8 +46,7 @@ export default function PortalIntro({ onComplete }: { onComplete: () => void }) 
         let sparks: Spark[] = [];
         let frame = 0;
         let portalRadius = 0; // Starts at 0
-        let targetRadius = Math.max(width, height) * 1.2; // Expand beyond screen
-        let isOpening = false;
+        const targetRadius = Math.max(width, height) * 1.2; // Expand beyond screen
         let expansionSpeed = 0;
 
         const createSpark = (onRing: boolean, radius: number, speedMult: number): Spark => {
@@ -103,7 +102,6 @@ export default function PortalIntro({ onComplete }: { onComplete: () => void }) 
                 }
             } else if (frame < 250) {
                 // Phase 2: Ring formation and Stable Spin
-                isOpening = false;
                 portalRadius += (250 - portalRadius) * 0.05; // Ease to 250px stable size
 
                 // Spawn MANY sparks on the ring
@@ -114,7 +112,6 @@ export default function PortalIntro({ onComplete }: { onComplete: () => void }) 
                 }
             } else {
                 // Phase 3: Expansion (The "Opening")
-                isOpening = true;
                 expansionSpeed += 0.5; // Accelerate expansion
                 portalRadius += expansionSpeed;
 
