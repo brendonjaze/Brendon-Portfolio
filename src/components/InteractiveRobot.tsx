@@ -23,20 +23,20 @@ export default function InteractiveRobot() {
     if (!isMounted) return null;
 
     return (
-        <div className="fixed bottom-0 right-0 z-0 pointer-events-none select-none overflow-hidden">
+        <div className="fixed bottom-0 right-0 z-10 pointer-events-none select-none overflow-hidden">
             <AnimatePresence>
                 {shouldDisplay && (
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8, y: 100 }}
-                        animate={{ opacity: 0.5, scale: 1, y: 40 }}
+                        animate={{ opacity: 0.6, scale: 1, y: 40 }}
                         exit={{ opacity: 0, scale: 0.8, y: 100 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
-                        className="w-[300px] h-[300px] md:w-[450px] md:h-[450px] -mr-16 -mb-16"
+                        className="w-[350px] h-[350px] md:w-[500px] md:h-[500px] -mr-20 -mb-20"
                     >
                         <iframe
                             src="/robot.html"
                             title="Interactive Robot"
-                            className="w-full h-full border-0"
+                            className="w-full h-full border-0 pointer-events-auto"
                             scrolling="no"
                         />
                     </motion.div>
