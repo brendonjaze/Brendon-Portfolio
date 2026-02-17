@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function InteractiveRobot() {
     const [isMounted, setIsMounted] = useState(false);
     const [shouldDisplay, setShouldDisplay] = useState(false);
+    const iframeRef = useRef<HTMLIFrameElement>(null);
 
     useEffect(() => {
         setIsMounted(true);
@@ -19,6 +20,37 @@ export default function InteractiveRobot() {
 
         return () => clearTimeout(timer);
     }, []);
+
+    // Listen for mousemove coordinates echoed back from robot.html via postMessage.
+    // The iframe captures real pointer events (so the Spline robot tracks the cursor),
+    // and we re-dispatch them on the parent window so the CursorComet keeps animating.
+    useEffect(() => {
+        if (!shouldDisplay) return;
+
+        const handleMessage = (e: MessageEvent) => {
+            if (e.data?.type === 'iframe-mousemove') {
+                const iframe = iframeRef.current;
+                if (!iframe) return;
+
+                const rect = iframe.getBoundingClientRect();
+                // Translate iframe-relative coords to parent page coords
+                const parentX = e.data.x + rect.left;
+                const parentY = e.data.y + rect.top;
+
+                // Dispatch a real mousemove on the parent window
+                // so CursorComet and other effects keep working
+                window.dispatchEvent(new MouseEvent('mousemove', {
+                    clientX: parentX,
+                    clientY: parentY,
+                    bubbles: true,
+                    cancelable: true,
+                }));
+            }
+        };
+
+        window.addEventListener('message', handleMessage);
+        return () => window.removeEventListener('message', handleMessage);
+    }, [shouldDisplay]);
 
     if (!isMounted) return null;
 
@@ -34,6 +66,7 @@ export default function InteractiveRobot() {
                         className="w-[350px] h-[350px] md:w-[500px] md:h-[500px] -mr-20 -mb-20"
                     >
                         <iframe
+                            ref={iframeRef}
                             src="/robot.html"
                             title="Interactive Robot"
                             className="w-full h-full border-0 pointer-events-auto"
@@ -45,3 +78,4 @@ export default function InteractiveRobot() {
         </div>
     );
 }
+

@@ -26,6 +26,16 @@ interface Project {
 
 const projects: Project[] = [
     {
+        id: "lost-and-found",
+        title: "Lost & Found",
+        shortDescription: "Public transport lost item tracking system.",
+        fullDescription: "A centralized system for reporting and tracking items lost in public transport terminals. Features include item reporting with photo uploads, real-time status tracking (Pending, Found, Claimed), admin management dashboard, and a secure, transparent workflow for reuniting owners with their belongings.",
+        tech: ["Next.js", "Tailwind CSS", "Supabase"],
+        link: "https://lost-and-found-omega-pink.vercel.app/",
+        color: "from-teal-500 to-blue-600",
+        image: "/lnf-thumbnail.png"
+    },
+    {
         id: "lms",
         title: "Library Management",
         shortDescription: "Comprehensive tracking for books & members.",
@@ -81,7 +91,7 @@ export default function ProjectsSection() {
                 Featured Projects
             </motion.h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((project) => (
                     <motion.div
                         layoutId={shouldReduceMotion ? undefined : `card-container-${project.id}`}
