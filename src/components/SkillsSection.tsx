@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 const skills = [
     "Responsive Web Design", "User Research", "React", "Next.js",
-    "HTML/CSS", "JavaScript", "Express.js", "Node.js",
+    "HTML/CSS", "RestAPI", "JavaScript", "Express.js", "Node.js",
     "Python", "FastAPI", "Supabase", "Arduino",
     "IoT", "Tailwind CSS", "Framer Motion"
 ];
