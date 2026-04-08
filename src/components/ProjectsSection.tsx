@@ -20,6 +20,7 @@ interface Project {
     fullDescription: string;
     tech: string[];
     link: string;
+    links?: { label: string; url: string }[];
     color: string;
     image?: string;
 }
@@ -54,6 +55,26 @@ const projects: Project[] = [
         link: "https://brendon-front-gy4dqwn1k-brendon-jazes-projects.vercel.app/",
         color: "from-emerald-500 to-cyan-500",
         image: "/iot-thumbnail.png"
+    },
+    {
+        id: "pickleball",
+        title: "Pickleball Booking System",
+        shortDescription: "Court reservation platform for Glan Pickleball Community.",
+        fullDescription: "A full-stack court booking platform for the Glan Pickleball Community in Sarangani Province. Players can browse available courts, view pricing (₱100/hr), and reserve time slots with ease.",
+        tech: ["Next.js", "Tailwind CSS", "Supabase"],
+        link: "https://pickleball-booking-system-4klv.vercel.app/",
+        color: "from-green-700 to-emerald-500",
+        image: "/User-Side-Thumbnail.png",
+    },
+    {
+        id: "pickleball-admin",
+        title: "Pickleball Admin Panel",
+        shortDescription: "Real-time dashboard for managing courts and bookings.",
+        fullDescription: "The admin side of the Glan Pickleball Community booking platform. Features a real-time dashboard with booking management, revenue tracking, announcements, and court lock controls — with CSV export for past bookings.",
+        tech: ["Next.js", "Tailwind CSS", "Supabase"],
+        link: "https://pickleball-booking-system-admin-pan.vercel.app/",
+        color: "from-green-700 to-emerald-500",
+        image: "/Admin-Side-Thumbnail.png",
     }
 ];
 
@@ -220,14 +241,19 @@ export default function ProjectsSection() {
                                                     </div>
                                                 </div>
 
-                                                <a
-                                                    href={project.link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-full font-semibold transition-all hover:scale-105"
-                                                >
-                                                    Open Project <LinkIcon />
-                                                </a>
+                                                <div className="flex flex-wrap gap-3">
+                                                    {(project.links ?? [{ label: "Open Project", url: project.link }]).map((l) => (
+                                                        <a
+                                                            key={l.url}
+                                                            href={l.url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-full font-semibold transition-all hover:scale-105"
+                                                        >
+                                                            {l.label} <LinkIcon />
+                                                        </a>
+                                                    ))}
+                                                </div>
                                             </motion.div>
                                         </div>
                                     </motion.div>

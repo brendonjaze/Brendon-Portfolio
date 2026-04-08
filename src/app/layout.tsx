@@ -6,8 +6,6 @@ import { Inter, Outfit } from "next/font/google";
 import CursorLight from "@/components/CursorLight";
 import CursorParticles from "@/components/CursorParticles";
 import CursorComet from "@/components/CursorComet";
-import SiteIntro from "@/components/SiteIntro";
-import InteractiveRobot from "@/components/InteractiveRobot";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -58,8 +56,6 @@ export default function RootLayout({
         <CursorLight />
         <CursorParticles />
         <CursorComet />
-        <SiteIntro />
-        <InteractiveRobot />
         {children}
       </body>
     </html>
