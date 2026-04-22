@@ -200,7 +200,7 @@ export default function ProjectsSection() {
                                         {/* Expanded Header */}
                                         <motion.div
                                             layoutId={shouldReduceMotion ? undefined : `card-image-${project.id}`}
-                                            className={`h-64 w-full relative shrink-0 overflow-hidden ${!project.image ? `bg-gradient-to-br ${project.color}` : ''}`}
+                                            className={`h-40 md:h-64 w-full relative shrink-0 overflow-hidden ${!project.image ? `bg-gradient-to-br ${project.color}` : ''}`}
                                         >
                                             {project.image && (
                                                 <img
@@ -212,10 +212,10 @@ export default function ProjectsSection() {
                                             <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#1a0b2e] to-transparent" />
                                         </motion.div>
 
-                                        <div className="p-8 overflow-y-auto custom-scrollbar">
+                                        <div className="p-5 md:p-8 overflow-y-auto custom-scrollbar">
                                             <motion.h3
                                                 layoutId={shouldReduceMotion ? undefined : `card-title-${project.id}`}
-                                                className="text-4xl font-bold text-white mb-4"
+                                                className="text-2xl md:text-4xl font-bold text-white mb-4"
                                             >
                                                 {project.title}
                                             </motion.h3>
@@ -226,7 +226,7 @@ export default function ProjectsSection() {
                                                 transition={{ delay: 0.2 }}
                                                 className="prose prose-invert max-w-none"
                                             >
-                                                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                                                <p className="text-base md:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
                                                     {project.fullDescription}
                                                 </p>
 

@@ -5,10 +5,12 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
+import LandingIntro from "@/components/LandingIntro";
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-text-main overflow-x-hidden">
+    <div className="min-h-screen text-text-main [overflow-x:clip]">
+      <LandingIntro onComplete={() => { document.body.style.overflow = ''; }} />
       <Navbar />
 
       <main>
@@ -23,7 +25,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="order-2 lg:order-1 text-center lg:text-left"
             >
-              <h1 className="text-5xl md:text-7xl font-bold font-heading leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold font-heading leading-tight mb-6">
                 Brendon Jaze <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
                   M. Lambago
@@ -119,7 +121,7 @@ export default function Home() {
         <ProjectsSection />
 
         {/* Contact Section */}
-        <section id="contact" className="py-32 px-6 text-center">
+        <section id="contact" className="py-20 md:py-32 px-6 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -127,7 +129,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="container max-w-3xl mx-auto"
           >
-            <h2 className="text-5xl md:text-6xl font-bold font-heading mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold font-heading mb-6 tracking-tight">
               Let&apos;s create something.
             </h2>
             <p className="text-xl text-text-dim mb-12 max-w-xl mx-auto">
