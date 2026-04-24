@@ -14,7 +14,6 @@ const skillCategories = [
             { name: "JavaScript", description: "The core scripting language powering all web interactivity." },
             { name: "HTML/CSS", description: "Foundation of the web — structure, layout, and visual style." },
             { name: "Tailwind CSS", description: "Utility-first CSS framework for rapid, consistent UI development." },
-            { name: "Framer Motion", description: "Production-ready motion library for smooth React animations." },
             { name: "Responsive Design", description: "Building layouts that adapt fluidly across all screen sizes." },
             { name: "User Research", description: "Gathering insights to design with real user needs in mind." },
         ],
