@@ -35,16 +35,16 @@ export default function Home() {
                 A Creative Developer crafting exceptional digital experiences with modern technologies.
               </p>
 
-              <div className="flex gap-4 justify-center lg:justify-start">
+              <div className="flex gap-3 justify-center lg:justify-start">
                 <a
                   href="#projects"
-                  className="px-8 py-3 rounded-full bg-primary hover:bg-primary-dark text-white font-semibold transition-all hover:scale-105 shadow-[0_0_20px_rgba(192,132,252,0.3)]"
+                  className="px-5 py-2.5 text-sm sm:px-8 sm:py-3 sm:text-base rounded-full bg-primary hover:bg-primary-dark text-white font-semibold transition-all hover:scale-105 shadow-[0_0_20px_rgba(192,132,252,0.3)]"
                 >
                   View My Work
                 </a>
                 <a
                   href="#contact"
-                  className="px-8 py-3 rounded-full border border-white/10 hover:bg-white/5 text-white font-semibold transition-all hover:scale-105 backdrop-blur-sm"
+                  className="px-5 py-2.5 text-sm sm:px-8 sm:py-3 sm:text-base rounded-full border border-white/10 hover:bg-white/5 text-white font-semibold transition-all hover:scale-105 backdrop-blur-sm"
                 >
                   Get In Touch
                 </a>
@@ -92,15 +92,15 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="container max-w-4xl mx-auto"
           >
-            <div className="glass p-8 md:p-12 relative overflow-hidden group">
+            <div className="glass p-5 sm:p-8 md:p-12 relative overflow-hidden group">
               {/* Decorative gradient blob */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10 group-hover:bg-primary/30 transition-colors duration-500" />
 
-              <h2 className="text-4xl font-bold font-heading mb-8 text-center bg-gradient-to-r from-white to-text-dim bg-clip-text text-transparent">
+              <h2 className="text-3xl sm:text-4xl font-bold font-heading mb-6 sm:mb-8 text-center bg-gradient-to-r from-white to-text-dim bg-clip-text text-transparent">
                 About Me
               </h2>
 
-              <div className="grid md:grid-cols-2 gap-8 text-lg text-text-dim leading-relaxed">
+              <div className="grid md:grid-cols-2 gap-5 sm:gap-8 text-base sm:text-lg text-text-dim leading-relaxed">
                 <p>
                   I am a passionate developer with a strong focus on building responsive and interactive web applications.
                   My journey in tech is driven by curiosity and a desire to solve complex problems through clean, efficient code.

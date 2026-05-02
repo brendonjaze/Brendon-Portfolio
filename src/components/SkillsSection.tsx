@@ -64,7 +64,7 @@ function MarqueeCard({ skill }: { skill: Skill }) {
 
     return (
         <div
-            className="relative flex-shrink-0 w-[220px] cursor-default select-none"
+            className="relative flex-shrink-0 w-[148px] sm:w-[185px] md:w-[220px] cursor-default select-none"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
@@ -109,7 +109,7 @@ function MarqueeCard({ skill }: { skill: Skill }) {
                     style={{ borderBottom: `1.5px solid ${skill.color}`, borderRight: `1.5px solid ${skill.color}`, opacity: hovered ? 1 : 0.28 }} />
 
                 {/* Content */}
-                <div className="relative p-5 flex flex-col gap-3" style={{ zIndex: 10 }}>
+                <div className="relative p-3.5 sm:p-5 flex flex-col gap-2 sm:gap-3" style={{ zIndex: 10 }}>
                     {/* Category badge */}
                     <div className="flex items-center gap-2">
                         <div className="relative flex-shrink-0 w-2 h-2">
@@ -129,14 +129,14 @@ function MarqueeCard({ skill }: { skill: Skill }) {
 
                     {/* Skill name */}
                     <h3
-                        className="font-mono font-bold text-[14px] leading-snug text-white tracking-wide transition-all duration-200"
+                        className="font-mono font-bold text-[12px] sm:text-[14px] leading-snug text-white tracking-wide transition-all duration-200"
                         style={{ textShadow: hovered ? `0 0 18px rgba(${skill.rgb}, 0.9)` : "none" }}
                     >
                         {skill.name}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-[11px] leading-relaxed"
+                    <p className="text-[10px] sm:text-[11px] leading-relaxed"
                         style={{ color: "rgba(155,155,195,0.62)" }}>
                         {skill.description}
                     </p>
@@ -185,7 +185,7 @@ function MarqueeRow({ skills, direction, duration }: {
             />
 
             <div
-                className="flex gap-4 py-1"
+                className="flex gap-2 sm:gap-4 py-1"
                 style={{
                     width: "max-content",
                     animation: `marquee-${direction} ${duration}s linear infinite`,
