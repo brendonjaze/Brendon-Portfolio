@@ -1,13 +1,30 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
 import LandingIntro from "@/components/LandingIntro";
+import PricingSection, { Plan } from "@/components/PricingSection";
+import LockedSection from "@/components/LockedSection";
 
 export default function Home() {
+  const [plan, setPlan] = useState<Plan | null>(null);
+
+  function handlePlanSelect(selected: Plan) {
+    setPlan(selected);
+    const scrollTargets: Record<Plan, string> = {
+      free: "about",
+      pro: "skills",
+      max: "projects",
+    };
+    setTimeout(() => {
+      document.getElementById(scrollTargets[selected])?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  }
+
   return (
     <div className="min-h-screen text-text-main [overflow-x:clip]">
       <LandingIntro onComplete={() => { document.body.style.overflow = ''; }} />
@@ -83,6 +100,9 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Pricing Section */}
+        <PricingSection activePlan={plan} onSelect={handlePlanSelect} />
+
         {/* About Section */}
         <section id="about" className="py-24 px-6 relative">
           <motion.div
@@ -115,12 +135,35 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <SkillsSection />
+        <LockedSection
+          locked={plan === null || plan === "free"}
+          upgradeTo="Pro"
+          upgradePrice="₱499/mo"
+          sectionName="Skills & Tech Stack"
+          onUpgrade={() => handlePlanSelect("pro")}
+        >
+          <SkillsSection />
+        </LockedSection>
 
         {/* Projects Section */}
-        <ProjectsSection />
+        <LockedSection
+          locked={plan === null || plan === "free" || plan === "pro"}
+          upgradeTo="Max"
+          upgradePrice="₱999/mo"
+          sectionName="Projects Portfolio"
+          onUpgrade={() => handlePlanSelect("max")}
+        >
+          <ProjectsSection />
+        </LockedSection>
 
         {/* Contact Section */}
+        <LockedSection
+          locked={plan === null || plan === "free" || plan === "pro"}
+          upgradeTo="Max"
+          upgradePrice="₱999/mo"
+          sectionName="Contact Info"
+          onUpgrade={() => handlePlanSelect("max")}
+        >
         <section id="contact" className="py-20 md:py-32 px-6 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -169,6 +212,7 @@ export default function Home() {
             </div>
           </motion.div>
         </section>
+        </LockedSection>
       </main>
 
       <footer className="py-8 text-center text-text-dim border-t border-white/5">
